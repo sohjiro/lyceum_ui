@@ -1,0 +1,29 @@
+<h1> Events </h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Starting Date</th>
+      <th>Campus</th>
+      <th>Quorum</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |event|}}
+      <tr>
+        <td>{{ event.type }}</td>
+        <td>{{ event.name }}</td>
+        <td>{{ event.starting_date }}</td>
+        <td>{{ event.campus }}</td>
+        <td>{{ event.quorum }}</td>
+        <td>{{ event.price }}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+
+{{ outlet }}
