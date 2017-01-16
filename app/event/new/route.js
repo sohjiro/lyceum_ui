@@ -12,18 +12,16 @@ export default Ember.Route.extend({
         price: this.controller.get('price')
       });
 
-      debugger;
-
       new_event.save().then(() => {
         console.log('save successful');
         this.controller.set('message', 'A new event has been created');
       }, function() {
-        this.controller.set('type', null),
-        this.controller.set('name', null),
-        this.controller.set('starting_date', null),
-        this.controller.set('campus', null),
-        this.controller.set('quorum', null),
-        this.controller.set('price', null)
+        this.controller.set('type', null);
+        this.controller.set('name', null);
+        this.controller.set('starting_date', null);
+        this.controller.set('campus', null);
+        this.controller.set('quorum', null);
+        this.controller.set('price', null);
         this.controller.set('message', 'Saved failure');
       });
     }
