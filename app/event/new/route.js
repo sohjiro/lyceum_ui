@@ -13,8 +13,9 @@ export default Ember.Route.extend({
       });
 
       new_event.save().then(() => {
-        this.controller.set('success', 'A new event has been created');
-      }, function(e) {
+        this.controller.set('success', {message: 'A new event has been created'});
+      }, (e) => {
+        this.controller.set('error', e.errors);
         console.log(e);
       });
     }
