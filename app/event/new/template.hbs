@@ -1,0 +1,14 @@
+<div>
+  <h1> Event Form </h1>
+</div>
+
+Type: {{ input value=type }}
+Name: {{ input value=name }}
+Starting date: {{ input value=starting_date }}
+Campus: {{ input value=campus }}
+Quorum: {{ input value=quorum }}
+Price: {{ input value=price }}
+
+<button {{action 'addNew'}}> Add </button>
+
+{{ message }}
