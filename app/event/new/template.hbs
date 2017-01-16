@@ -1,5 +1,17 @@
 <h1> Form </h1>
 
+{{#if success}}
+  <div id="success" class="alert alert-success" style="display: none" role="alert">
+    <strong>Well done!</strong> {{ success }}
+  </div>
+{{/if}}
+
+{{#if error}}
+  <div id="danger" class="alert alert-danger" role="alert">
+    <strong>Oh snap!</strong> {{ error }}
+  </div>
+{{/if}}
+
 {{ message }}
 <div class="form-horizontal">
   <div class="form-group">
