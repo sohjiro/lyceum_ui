@@ -3,12 +3,10 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   actions: {
     addNew: function() {
-      let starting_date = new Date(this.controller.get('starting_date'));
-
       var new_event = this.store.createRecord('event', {
         type: this.controller.get('type'),
         name: this.controller.get('name'),
-        starting_date: starting_date.toJSON(),
+        starting_date: this.controller.get('starting_date'),
         campus: this.controller.get('campus'),
         quorum: this.controller.get('quorum'),
         price: this.controller.get('price')
