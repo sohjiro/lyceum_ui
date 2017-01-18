@@ -30,7 +30,15 @@
   <div class="form-group">
     <label for="starting_date" class="col-sm-2 control-label">Starting Date</label>
     <div class="col-sm-10">
-      {{ input value=starting_date class="form-control" id="starting_date" placeholder="Starting Date" }}
+      {{ bootstrap-datepicker value=starting_date
+                              class="form-control"
+                              placeholder="Starting date"
+                              clearBtn=true
+                              format="yyyy-mm-dd"
+                              todayBtn=true
+                              todayHighlight=true
+                              valueFormat="yyyy-mm-dd"
+                              }}
     </div>
   </div>
 
