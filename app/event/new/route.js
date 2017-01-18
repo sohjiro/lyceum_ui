@@ -16,6 +16,7 @@ export default Ember.Route.extend({
 
       new_event.save().then(() => {
         this.controller.set('success', {message: 'A new event has been created'});
+        this.controller.set('error', null);
         this.controller.set('type', null);
         this.controller.set('name', null);
         this.controller.set('starting_date', null);
@@ -24,6 +25,7 @@ export default Ember.Route.extend({
         this.controller.set('price', null);
       }).catch((reason) => {
         this.controller.set('error', reason.errors);
+        this.controller.set('success', null);
         new_event.rollbackAttributes();
       });
     }
