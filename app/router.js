@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('event', function() {
+  this.route('events', function() {
     this.route('new');
     this.route('candidates', {path: ":id/candidates"});
   });
