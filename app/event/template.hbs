@@ -2,4 +2,37 @@
   <h1>{{ model.name }} <small>{{ model.campus }}</small></h1>
 </div>
 
-{{outlet}}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <h1> Event list </h1>
+      <table class="table table-hover table-strip">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>degree</th>
+            <th>email</th>
+            <th>telephone</th>
+            <th>observations</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each model.candidates as |candidate|}}
+            <tr>
+              <td>{{ candidate.id }}</td>
+              <td>{{ candidate.name }}</td>
+              <td>{{ candidate.degree }}</td>
+              <td>{{ candidate.email }}</td>
+              <td>{{ candidate.telephone }}</td>
+              <td>{{ candidate.observations }}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      {{outlet}}
+    </div>
+  </div>
+</div>
