@@ -21,7 +21,8 @@ export default Ember.Route.extend({
       });
 
       candidate.save().then(() => {
-        this.controller.set('success', {message: 'A new event has been created'});
+        this.controller.set('success', {message: 'Participant added'});
+        this.controller.set('error', null);
         clear(this.controller);
       }).catch((reason) => {
         this.controller.set('error', reason.errors);
