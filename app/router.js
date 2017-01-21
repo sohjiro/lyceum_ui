@@ -12,6 +12,7 @@ Router.map(function() {
   });
   this.route('event', {path: '/event/:event_id'}, function() {
     this.route('candidates');
+    this.route('candidate', {path: '/candidate/:candidate_id'});
   });
 });
 

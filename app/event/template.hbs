@@ -14,6 +14,7 @@
             <th>email</th>
             <th>telephone</th>
             <th>observations</th>
+            <th />
           </tr>
         </thead>
         <tbody>
@@ -25,6 +26,7 @@
               <td>{{ candidate.email }}</td>
               <td>{{ candidate.telephone }}</td>
               <td>{{ candidate.observations }}</td>
+              <td>{{#link-to 'event.candidate' candidate}} Edit {{/link-to}}</td>
             </tr>
           {{/each}}
         </tbody>
