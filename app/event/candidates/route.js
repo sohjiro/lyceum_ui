@@ -10,6 +10,10 @@ function clear(controller) {
 
 export default Ember.Route.extend({
   actions: {
+    cancel: function() {
+      clear(this.controller);
+      this.transitionTo('event', this.controller.model);
+    },
     save: function() {
       var candidate = this.store.createRecord('candidate', {
         name: this.controller.get('name'),
