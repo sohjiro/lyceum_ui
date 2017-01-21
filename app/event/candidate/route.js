@@ -11,8 +11,19 @@ function clear(controller) {
 export default Ember.Route.extend({
   actions: {
     cancel: function() {
-      clear(this.controller);
-      this.transitionTo('event', this.controller.model);
+      this.controller.model.rollbackAttributes();
+      this.transitionTo('event', this.controller.model.get('event'));
+    },
+    update: function() {
+      this.controller.model.save().then(() => {
+        this.controller.set('success', {message: 'Participant Updated'});
+        this.controller.set('error', null);
+        clear(this.controller);
+      }).catch((reason) => {
+        this.controller.set('error', reason.errors);
+        this.controller.set('success', null);
+        this.controller.model.rollbackAttributes();
+      });
     }
   }
 });

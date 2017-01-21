@@ -1,3 +1,15 @@
+{{#if error}}
+  <div id="danger" class="alert alert-danger" role="alert">
+    <strong>{{error.code}}</strong> {{ error.message }}
+  </div>
+{{/if}}
+
+{{#if success}}
+  <div id="success" class="alert alert-success" role="alert">
+    <strong>Well done!</strong> {{ success.message }}
+  </div>
+{{/if}}
+
 <div class="form-horizontal">
   <div class="form-group">
     <label for="name" class="col-sm-2 control-label">Name</label>
