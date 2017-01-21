@@ -12,6 +12,7 @@
             <th>Campus</th>
             <th>Quorum</th>
             <th>Price</th>
+            <th>Candidates</th>
           </tr>
         </thead>
         <tbody>
@@ -24,6 +25,7 @@
               <td>{{ event.campus }}</td>
               <td>{{ event.quorum }}</td>
               <td>{{ event.price }}</td>
+              <td>{{ event.candidates.length }}</td>
             </tr>
           {{/each}}
         </tbody>
