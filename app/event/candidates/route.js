@@ -34,8 +34,6 @@ export default Ember.Route.extend({
         status: this.get('status')
       });
 
-      debugger;
-
       candidate.save().then(() => {
         this.controller.set('success', {message: 'Participant added'});
         this.controller.set('error', null);
