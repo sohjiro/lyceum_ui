@@ -14,19 +14,27 @@ export default Ember.Route.extend({
     controller.set('statuses', this.get('store').findAll('status'));
   },
   actions: {
+    selectStatus(value) {
+      var status = this.get('store').peekRecord('status', value);
+      this.set('status', status);
+    },
     cancel: function() {
       clear(this.controller);
       this.transitionTo('event', this.controller.model);
     },
     save: function() {
+      console.log(this.get('status_id'));
       var candidate = this.store.createRecord('candidate', {
         name: this.controller.get('name'),
         degree: this.controller.get('degree'),
         email: this.controller.get('email'),
         telephone: this.controller.get('telephone'),
         observations: this.controller.get('observations'),
-        event: this.controller.model
+        event: this.controller.model,
+        status: this.get('status')
       });
+
+      debugger;
 
       candidate.save().then(() => {
         this.controller.set('success', {message: 'Participant added'});
