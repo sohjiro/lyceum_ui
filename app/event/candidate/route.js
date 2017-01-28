@@ -9,7 +9,15 @@ function clear(controller) {
 }
 
 export default Ember.Route.extend({
+  setupController: function(controller, model) {
+    controller.set('content', model);
+    controller.set('statuses', this.get('store').findAll('status'));
+  },
   actions: {
+    selectStatus(value) {
+      var status = this.get('store').peekRecord('status', value);
+      this.controller.model.set('status', status);
+    },
     cancel: function() {
       this.controller.model.rollbackAttributes();
       this.transitionTo('event', this.controller.model.get('event'));
