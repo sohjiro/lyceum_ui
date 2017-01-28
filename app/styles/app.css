@@ -6,3 +6,24 @@ body {
 .navbar {
   margin-bottom: 20px;
 }
+
+
+.INFORM {
+  background-color: #f5f5f5;
+}
+
+.INTERESTED {
+  background-color: #d9edf7;
+}
+
+.TENTATIVE {
+  background-color: #fcf8e3;
+}
+
+.ENROLLED {
+  background-color: #dff0d8;
+}
+
+.DECLINE {
+  background-color: #f2dede;
+}

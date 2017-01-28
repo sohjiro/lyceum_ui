@@ -9,6 +9,7 @@ function clear(controller) {
 }
 
 export default Ember.Route.extend({
+  status: 1,
   setupController: function(controller, model) {
     controller.set('content', model);
     controller.set('statuses', this.get('store').findAll('status'));
