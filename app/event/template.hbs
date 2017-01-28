@@ -9,11 +9,12 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>name</th>
-            <th>degree</th>
-            <th>email</th>
-            <th>telephone</th>
-            <th>observations</th>
+            <th>Name</th>
+            <th>Degree</th>
+            <th>Email</th>
+            <th>Telephone</th>
+            <th>Status</th>
+            <th>Observations</th>
             <th />
           </tr>
         </thead>
@@ -25,6 +26,7 @@
               <td>{{ candidate.degree }}</td>
               <td>{{ candidate.email }}</td>
               <td>{{ candidate.telephone }}</td>
+              <td>{{ candidate.status.name }}</td>
               <td>{{ candidate.observations }}</td>
               <td>{{#link-to 'event.candidate' candidate}} Edit {{/link-to}}</td>
             </tr>
