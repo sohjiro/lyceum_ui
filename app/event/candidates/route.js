@@ -16,6 +16,7 @@ export default Ember.Route.extend({
   },
   actions: {
     selectStatus(value) {
+      console.log("new");
       var status = this.get('store').peekRecord('status', value);
       this.set('status', status);
     },

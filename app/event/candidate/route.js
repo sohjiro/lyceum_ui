@@ -19,7 +19,7 @@ export default Ember.Route.extend({
       this.controller.model.set('status', status);
     },
     cancel: function() {
-      this.controller.model.rollbackAttributes();
+      this.controller.model.reload();
       this.transitionTo('event', this.controller.model.get('event'));
     },
     update: function() {
