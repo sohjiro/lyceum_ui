@@ -11,14 +11,22 @@ function clear(controller) {
 }
 
 export default Ember.Route.extend({
+  setupController: function(controller, model) {
+    controller.set('content', model);
+    controller.set('types', this.get('store').findAll('type'));
+  },
   actions: {
+    selectType(value) {
+      var types = this.get('store').peekRecord('type', value);
+      this.set('type', types);
+    },
     cancel: function() {
       clear(this.controller);
       this.transitionTo('events');
     },
     addNew: function() {
       var new_event = this.store.createRecord('event', {
-        type: this.controller.get('type'),
+        type: this.get('type'),
         name: this.controller.get('name'),
         starting_date: this.controller.get('starting_date'),
         campus: this.controller.get('campus'),
