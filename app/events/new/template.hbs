@@ -16,7 +16,7 @@
   <div class="form-group">
     <label for="type" class="col-sm-2 control-label">Type</label>
     <div class="col-sm-10">
-      {{#x-select value=type_id action="selectType" as |xs|}}
+      {{#x-select action="selectType" as |xs|}}
         {{#each types as |type|}}
           {{#xs.option value=type.id}} {{type.name}} {{/xs.option}}
         {{/each}}
