@@ -21,6 +21,10 @@ export default Ember.Route.extend({
       var types = this.get('store').peekRecord('type', value);
       this.set('type', types);
     },
+    selectCampus(value) {
+      var campus = this.get('store').peekRecord('campus', value);
+      this.set('campus', campus);
+    },
     cancel: function() {
       clear(this.controller);
       this.transitionTo('events');
@@ -30,7 +34,7 @@ export default Ember.Route.extend({
         type: this.get('type'),
         name: this.controller.get('name'),
         starting_date: this.controller.get('starting_date'),
-        campus: this.controller.get('campus'),
+        campus: this.get('campus'),
         quorum: this.controller.get('quorum'),
         price: this.controller.get('price')
       });
