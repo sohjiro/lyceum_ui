@@ -41,7 +41,11 @@
   <div class="form-group">
     <label for="campus" class="col-sm-2 control-label">Campus</label>
     <div class="col-sm-10">
-      {{ input value=campus class="form-control" id="campus" placeholder="Campus" }}
+      {{#x-select action="selectCampus" as |xs|}}
+        {{#each campuses as |campus|}}
+          {{#xs.option value=campus.id}} {{campus.name}} {{/xs.option}}
+        {{/each}}
+      {{/x-select}}
     </div>
   </div>
 

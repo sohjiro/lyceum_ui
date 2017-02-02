@@ -14,6 +14,7 @@ export default Ember.Route.extend({
   setupController: function(controller, model) {
     controller.set('content', model);
     controller.set('types', this.get('store').findAll('type'));
+    controller.set('campuses', this.get('store').findAll('campus'));
   },
   actions: {
     selectType(value) {
