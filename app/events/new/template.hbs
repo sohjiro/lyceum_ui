@@ -27,7 +27,11 @@
   <div class="form-group">
     <label for="name" class="col-sm-2 control-label">Name</label>
     <div class="col-sm-10">
-      {{ input value=name class="form-control" id="name" placeholder="Name" }}
+      {{#x-select action="selectSubject" as |xs|}}
+        {{#each subjects as |subject|}}
+          {{#xs.option value=subject.id}} {{subject.name}} {{/xs.option}}
+        {{/each}}
+      {{/x-select}}
     </div>
   </div>
 
