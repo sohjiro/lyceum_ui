@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  name: DS.attr('string'),
+  subject: DS.belongsTo('subject'),
   starting_date: DS.attr('string'),
   campus: DS.belongsTo('campus'),
   quorum: DS.attr('number'),
