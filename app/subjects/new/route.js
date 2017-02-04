@@ -4,6 +4,8 @@ export default Ember.Route.extend({
   actions: {
     cancel: function() {
       this.controller.set('subject', null);
+      this.controller.set('error', null);
+      this.controller.set('success', null);
       this.transitionTo('subjects');
     },
     add: function() {
