@@ -1,1 +1,30 @@
-{{outlet}}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <h1> Event list </h1>
+      <table class="table table-hover table-strip">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Inserted at</th>
+            <th>Updated at at</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each model as |subject|}}
+            <tr>
+              <td>{{ subject.id }}</td>
+              <td>{{ subject.name }}</td>
+              <td>{{ subject.inserted_at }}</td>
+              <td>{{ subject.updated_at }}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      {{outlet}}
+    </div>
+  </div>
+</div>
