@@ -1,1 +1,28 @@
-{{outlet}}
+<h1> Edit </h1>
+
+{{#if error}}
+  <div id="danger" class="alert alert-danger" role="alert">
+    <strong>{{error.code}}</strong> {{ error.message }}
+  </div>
+{{/if}}
+
+{{#if success}}
+  <div id="success" class="alert alert-success" role="alert">
+    <strong>Well done!</strong> {{ success.message }}
+  </div>
+{{/if}}
+
+<div class="form-horizontal">
+  <div class="input-group">
+    {{ input type="text" value=subject class="form-control" id="subject" placeholder="Subject" enter="add" }}
+    <span class="input-group-btn">
+      <button {{action 'add'}} class="btn btn-primary">
+        <i class="glyphicon glyphicon-ok"></i>
+      </button>
+      <button {{action 'cancel'}} class="btn btn-default">
+        <i class="glyphicon glyphicon-remove"></i>
+      </button>
+    </span>
+  </div>
+
+</div>
