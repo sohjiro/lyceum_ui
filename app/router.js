@@ -14,6 +14,7 @@ Router.map(function() {
     this.route('candidates');
     this.route('candidate', {path: '/candidate/:candidate_id'});
   });
+  this.route('subjects');
 });
 
 export default Router;
