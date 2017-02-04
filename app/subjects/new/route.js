@@ -16,6 +16,7 @@ export default Ember.Route.extend({
       new_subject.save().then(() => {
         this.controller.set('success', {message: 'A new event has been created'});
         this.controller.set('error', null);
+        this.controller.set('subject', null);
       }).catch((reason) => {
         this.controller.set('error', reason.errors);
         this.controller.set('success', null);
