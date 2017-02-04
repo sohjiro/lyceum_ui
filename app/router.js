@@ -16,6 +16,7 @@ Router.map(function() {
   });
   this.route('subjects', function() {
     this.route('new');
+    this.route('edit');
   });
 });
 
