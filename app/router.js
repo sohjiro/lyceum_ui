@@ -15,7 +15,9 @@ Router.map(function() {
     this.route('edit', {path: ':subject_id'});
   });
   this.route('campuses', {path: 'campuses/:campus_id'});
-  this.route('candidates');
+  this.route('candidates', function() {
+    this.route('new');
+  });
 });
 
 export default Router;
