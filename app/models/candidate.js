@@ -5,7 +5,5 @@ export default DS.Model.extend({
   degree: DS.attr('string'),
   email: DS.attr('string'),
   telephone: DS.attr('string'),
-  observations: DS.attr('string'),
-  event: DS.belongsTo('event'),
-  status: DS.belongsTo('status')
+  observations: DS.attr('string')
 });

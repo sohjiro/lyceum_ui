@@ -6,6 +6,7 @@ export default DS.Model.extend({
   campus: DS.belongsTo('campus'),
   quorum: DS.attr('number'),
   price: DS.attr('number'),
-  candidates: DS.hasMany('candidate'),
-  type: DS.belongsTo('type')
+  type: DS.belongsTo('type'),
+
+  records: DS.hasMany('record')
 });
