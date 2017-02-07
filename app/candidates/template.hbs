@@ -10,6 +10,7 @@
             <th>Degree</th>
             <th>Email</th>
             <th>Telephone</th>
+            <th />
           </tr>
         </thead>
         <tbody>
@@ -20,12 +21,12 @@
               <td>{{ candidate.degree }}</td>
               <td>{{ candidate.email }}</td>
               <td>{{ candidate.telephone }}</td>
+              <td>{{link-to 'Add to event' 'candidates.record' candidate}} </td>
             </tr>
           {{/each}}
         </tbody>
       </table>
-      {{link-to 'Create' 'candidates.new' class="btn btn-primary"}}
-      {{link-to 'Add to event' 'records.new' candidate}}
+      {{#link-to 'candidates.new' class="btn btn-primary"}} Create {{/link-to}}
     </div>
     <div class="col-md-4">
       {{outlet}}

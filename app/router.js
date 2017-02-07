@@ -17,6 +17,7 @@ Router.map(function() {
   this.route('campuses', {path: 'campuses/:campus_id'});
   this.route('candidates', function() {
     this.route('new');
+    this.route('record', {path: ':candidate_id/records'});
   });
 });
 
