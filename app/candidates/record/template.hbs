@@ -1,5 +1,17 @@
 <h1> Add to event </h1>
 
+{{#if error}}
+  <div id="danger" class="alert alert-danger" role="alert">
+    <strong>{{error.code}}</strong> {{ error.message }}
+  </div>
+{{/if}}
+
+{{#if success}}
+  <div id="success" class="alert alert-success" role="alert">
+    <strong>Well done!</strong> {{ success.message }}
+  </div>
+{{/if}}
+
 <div class="form-horizontal">
   <div class="form-group">
     <label for="events" class="col-sm-3 control-label">Events</label>
@@ -23,6 +35,12 @@
     </div>
   </div>
 
+  <div class="form-group">
+    <label for="observations" class="col-sm-3 control-label">Observations</label>
+    <div class="col-sm-9">
+      {{ textarea value=observations class="form-control" id="observations" placeholder="Observations" }}
+    </div>
+  </div>
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
