@@ -1,1 +1,32 @@
-{{outlet}}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <h1> Candidates </h1>
+      <table class="table table-hover table-strip">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Degree</th>
+            <th>Email</th>
+            <th>Telephone</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each model as |candidate|}}
+            <tr>
+              <td>{{ candidate.id }}</td>
+              <td>{{ candidate.name }}</td>
+              <td>{{ candidate.degree }}</td>
+              <td>{{ candidate.email }}</td>
+              <td>{{ candidate.telephone }}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      {{outlet}}
+    </div>
+  </div>
+</div>
