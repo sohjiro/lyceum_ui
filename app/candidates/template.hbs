@@ -24,7 +24,8 @@
           {{/each}}
         </tbody>
       </table>
-      {{#link-to 'candidates.new' class="btn btn-primary"}} Create {{/link-to}}
+      {{link-to 'Create' 'candidates.new' class="btn btn-primary"}}
+      {{link-to 'Add to event' 'records.new' candidate}}
     </div>
     <div class="col-md-4">
       {{outlet}}
