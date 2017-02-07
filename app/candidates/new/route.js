@@ -15,7 +15,7 @@ export default Ember.Route.extend({
       this.transitionTo('candidates');
     },
     save: function() {
-      var new_candidate = this.createRecord('candidate', {
+      var new_candidate = this.store.createRecord('candidate', {
         name: this.controller.get('name'),
         degree: this.controller.get('degree'),
         email: this.controller.get('email'),
