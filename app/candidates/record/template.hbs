@@ -1,4 +1,4 @@
-<h1> Add to event </h1>
+<h1> Add to an event </h1>
 
 {{#if error}}
   <div id="danger" class="alert alert-danger" role="alert">
@@ -13,6 +13,13 @@
 {{/if}}
 
 <div class="form-horizontal">
+  <div class="form-group">
+    <label for="name" class="col-sm-3 control-label">Name</label>
+    <div class="col-sm-9">
+      {{ input value=model.name class="form-control" id="name" disabled="true"}}
+    </div>
+  </div>
+
   <div class="form-group">
     <label for="events" class="col-sm-3 control-label">Events</label>
     <div class="col-sm-9">
