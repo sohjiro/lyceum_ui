@@ -18,7 +18,7 @@
         <tbody>
           {{#each model as |event|}}
             <tr>
-              <td>{{ event.id }}</td>
+              <td>{{link-to event.id 'event' event }}</td>
               <td>{{ event.type.name }}</td>
               <td>{{ event.subject.name }}</td>
               <td>{{ event.starting_date }}</td>

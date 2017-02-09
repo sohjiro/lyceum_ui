@@ -19,6 +19,7 @@ Router.map(function() {
     this.route('new');
     this.route('record', {path: ':candidate_id/records'});
   });
+  this.route('event', {path: 'events/:event_id'});
 });
 
 export default Router;
