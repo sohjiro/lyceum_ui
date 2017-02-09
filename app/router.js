@@ -9,6 +9,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('events', function() {
     this.route('new');
+    this.route('show', {path: ':event_id'});
   });
   this.route('subjects', function() {
     this.route('new');
