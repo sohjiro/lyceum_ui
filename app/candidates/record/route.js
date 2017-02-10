@@ -26,14 +26,20 @@ export default Ember.Route.extend({
       var new_record = this.store.createRecord('record', {
         candidate: this.controller.model,
         event: this.get('event'),
-        status: this.get('status'),
         observations: this.controller.get('observations')
       });
 
-      new_record.save().then(() => {
-        this.controller.set('success', {message: 'Candidate add to event'});
-        this.controller.set('error', null);
-        clear(this.controller);
+      new_record.save().then((record) => {
+        let recordStatus = this.store.createRecord('record-status', {
+          record: record,
+          status: this.get('status')
+        });
+
+        recordStatus.save().then(() => {
+          this.controller.set('success', {message: 'Candidate add to event'});
+          this.controller.set('error', null);
+          clear(this.controller);
+        });
       }).catch((reason) => {
         this.controller.set('error', reason.errors);
         this.controller.set('success', null);
