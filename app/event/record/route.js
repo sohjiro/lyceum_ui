@@ -9,16 +9,11 @@ export default Ember.Route.extend({
     controller.set('statuses', this.get('store').findAll('status'));
   },
   actions: {
-    selectStatus: function(value) {
-      console.log(value);
-      var status = this.store.peekRecord('status', value);
-      this.set('status', status);
-    },
     update: function() {
       this.controller.model.save().then((record) => {
         let recordStatus = this.store.createRecord('record-status', {
           record: record,
-          status: this.get('status')
+          status: this.controller.get('status')
         });
 
         recordStatus.save().then(() => {

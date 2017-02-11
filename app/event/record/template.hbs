@@ -32,14 +32,12 @@
   <div class="form-group">
     <label for="events" class="col-sm-3 control-label">Status</label>
     <div class="col-sm-9">
-      {{model.recordStatusSorted.firstObject.status.id}}
-      {{#x-select value=model.recordStatusSorted.firstObject.status.id
-                  class="form-control"
-                  action="selectStatus" as |xs|}}
-        {{#each statuses as |status|}}
-          {{#xs.option value=status.id}} {{status.name}} {{/xs.option}}
-        {{/each}}
-      {{/x-select}}
+      {{#power-select
+        options=statuses
+        selected=status
+        onchange=(action "selectStatus") as |status|}}
+        {{status.name}}
+      {{/power-select}}
     </div>
   </div>
 
