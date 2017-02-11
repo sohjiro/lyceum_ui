@@ -9,6 +9,12 @@ export default Ember.Route.extend({
     controller.set('statuses', this.get('store').findAll('status'));
   },
   actions: {
+    cancel: function() {
+      let model = this.controller.model;
+      model.rollbackAttributes();
+      this.controller.set('status', model.get('recordStatusSorted.firstObject.status'));
+      this.transitionTo('event', model.get('event'));
+    },
     update: function() {
       this.controller.model.save().then((record) => {
         let recordStatus = this.store.createRecord('record-status', {
