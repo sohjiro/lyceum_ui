@@ -1,0 +1,59 @@
+<div class="page-header">
+  <h1>Update event status</h1>
+</div>
+
+{{#if error}}
+  <div id="danger" class="alert alert-danger" role="alert">
+    <strong>{{error.code}}</strong> {{ error.message }}
+  </div>
+{{/if}}
+
+{{#if success}}
+  <div id="success" class="alert alert-success" role="alert">
+    <strong>Well done!</strong> {{ success.message }}
+  </div>
+{{/if}}
+
+<div class="form-horizontal">
+  <div class="form-group">
+    <label for="name" class="col-sm-3 control-label">Name</label>
+    <div class="col-sm-9">
+      {{ input value=model.candidate.name class="form-control" id="name" disabled="true"}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="events" class="col-sm-3 control-label">Events</label>
+    <div class="col-sm-9">
+      {{ input value=model.event.subject.name class="form-control" id="events" disabled="true"}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="events" class="col-sm-3 control-label">Status</label>
+    <div class="col-sm-9">
+      {{model.recordStatusSorted.firstObject.status.id}}
+      {{#x-select value=model.recordStatusSorted.firstObject.status.id
+                  class="form-control"
+                  action="selectStatus" as |xs|}}
+        {{#each statuses as |status|}}
+          {{#xs.option value=status.id}} {{status.name}} {{/xs.option}}
+        {{/each}}
+      {{/x-select}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="observations" class="col-sm-3 control-label">Observations</label>
+    <div class="col-sm-9">
+      {{ textarea value=model.observations class="form-control" id="observations" placeholder="Observations" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button {{action 'update'}} class="btn btn-primary"> Update </button>
+      <button {{action 'cancel'}} class="btn btn-default"> Cancel </button>
+    </div>
+  </div>
+</div>
