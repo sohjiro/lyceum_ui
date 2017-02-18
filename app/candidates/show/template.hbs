@@ -1,0 +1,18 @@
+<div class="page-header">
+  <h1>{{ model.name }}</h1>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <ul>
+      {{#each model.records as |record|}}
+        <li> {{link-to record.event.subject.name 'event' record.event }} </li>
+        <ul>
+          {{#each record.recordStatusSorted as |record_status|}}
+            <li> {{ record_status.status.name }} {{ format_date record_status.inserted_at }} </li>
+          {{/each}}
+        </ul>
+      {{/each}}
+    </ul>
+  </div>
+</div>
