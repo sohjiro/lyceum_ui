@@ -16,7 +16,7 @@
         <tbody>
           {{#each model as |candidate|}}
             <tr>
-              <td>{{ candidate.id }}</td>
+              <td>{{link-to candidate.id 'candidates.show' candidate }}</td>
               <td>{{ candidate.name }}</td>
               <td>{{ candidate.degree }}</td>
               <td>{{ candidate.email }}</td>
