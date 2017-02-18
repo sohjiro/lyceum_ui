@@ -22,6 +22,7 @@ Router.map(function() {
   });
   this.route('event', {path: 'events/:event_id'}, function() {
     this.route('record', {path: 'records/:record_id'});
+    this.route('candidates');
   });
 });
 
