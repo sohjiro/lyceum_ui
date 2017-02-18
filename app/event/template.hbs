@@ -18,7 +18,7 @@
           {{#each model.records as |record|}}
             <tr class="{{ get record.recordStatusSorted 'firstObject.status.name' }}">
               <td>{{ link-to record.id 'event.record' record}} </td>
-              <td>{{ link-to record.candidate.name 'candidates' }}</td>
+              <td>{{ link-to record.candidate.name 'candidates.show' record.candidate }}</td>
               <td>{{ record.candidate.telephone }}</td>
               <td>{{ record.observations }}</td>
               <td>{{ record.recordStatusSorted.firstObject.status.name }}</td>
