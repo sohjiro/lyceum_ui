@@ -1,8 +1,7 @@
 import Ember from 'ember';
 
 export function formatDate(value/*, hash*/) {
-  console.log(value.to);
-  return value;
+  return value[0].toDateString();
 }
 
 export default Ember.Helper.helper(formatDate);
