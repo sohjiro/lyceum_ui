@@ -18,6 +18,7 @@ Router.map(function() {
   this.route('candidates', function() {
     this.route('new');
     this.route('record', {path: ':candidate_id/records'});
+    this.route('show', {path: ':candidate_id'});
   });
   this.route('event', {path: 'events/:event_id'}, function() {
     this.route('record', {path: 'records/:record_id'});
