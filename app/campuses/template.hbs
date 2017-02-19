@@ -9,9 +9,7 @@
           <th>Name</th>
           <th>Degree</th>
           <th>Email</th>
-          <th>Event</th>
           <th>Telephone</th>
-          <th>Status</th>
           <th>Observations</th>
         </tr>
       </thead>
@@ -19,14 +17,10 @@
         {{#each model.candidates as |candidate|}}
           <tr class="{{ candidate.status.name }}">
             <td>{{ candidate.id }}</td>
-            <td>{{ candidate.name }}</td>
+            <td>{{link-to candidate.name 'candidates.show' candidate}}</td>
             <td>{{ candidate.degree }}</td>
             <td>{{ candidate.email }}</td>
-            <td>
-              {{#link-to 'event' candidate.event}} {{ candidate.event.subject.name }} {{/link-to}}
-            </td>
             <td>{{ candidate.telephone }}</td>
-            <td>{{ candidate.status.name }}</td>
             <td>{{ candidate.observations }}</td>
           </tr>
         {{/each}}
