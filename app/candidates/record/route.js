@@ -10,14 +10,6 @@ export default Ember.Route.extend({
     controller.set('statuses', this.get('store').findAll('status'));
   },
   actions: {
-    selectEvent(value) {
-      var event = this.get('store').peekRecord('event', value);
-      this.set('event', event);
-    },
-    selectStatus(value) {
-      var status = this.get('store').peekRecord('status', value);
-      this.set('status', status);
-    },
     cancel: function() {
       clear(this.controller);
       this.transitionTo('candidates');
@@ -25,14 +17,14 @@ export default Ember.Route.extend({
     add: function() {
       var new_record = this.store.createRecord('record', {
         candidate: this.controller.model,
-        event: this.get('event'),
+        event: this.controller.get('event'),
         observations: this.controller.get('observations')
       });
 
       new_record.save().then((record) => {
         let recordStatus = this.store.createRecord('record-status', {
           record: record,
-          status: this.get('status')
+          status: this.controller.get('status')
         });
 
         recordStatus.save().then(() => {

@@ -23,22 +23,28 @@
   <div class="form-group">
     <label for="events" class="col-sm-3 control-label">Events</label>
     <div class="col-sm-9">
-      {{#x-select action="selectEvent" as |xs|}}
-        {{#each events as |event|}}
-          {{#xs.option value=event.id}} {{event.subject.name}} - {{event.starting_date}} {{/xs.option}}
-        {{/each}}
-      {{/x-select}}
+      {{#power-select
+        placeholder="Select event..."
+        searchEnabled=false
+        options=events
+        selected=event
+        onchange=(action (mut event)) as |event|}}
+        {{ event.subject.name }} - {{ event.starting_date }}
+      {{/power-select}}
     </div>
   </div>
 
   <div class="form-group">
     <label for="events" class="col-sm-3 control-label">Status</label>
     <div class="col-sm-9">
-      {{#x-select action="selectStatus" as |xs|}}
-        {{#each statuses as |status|}}
-          {{#xs.option value=status.id}} {{status.name}} {{/xs.option}}
-        {{/each}}
-      {{/x-select}}
+      {{#power-select
+        placeholder="Select status..."
+        searchEnabled=false
+        options=statuses
+        selected=status
+        onchange=(action (mut status)) as |status|}}
+        {{ status.name }}
+      {{/power-select}}
     </div>
   </div>
 
