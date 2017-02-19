@@ -17,12 +17,12 @@
     <label for="type" class="col-sm-2 control-label">Type</label>
     <div class="col-sm-10">
       {{#power-select
-        placeholder="Select status..."
+        placeholder="Select type..."
         searchEnabled=false
-        options=statuses
-        selected=status
-        onchange=(action (mut status)) as |status|}}
-        {{ status.name }}
+        options=types
+        selected=type
+        onchange=(action (mut type)) as |type|}}
+        {{ type.name }}
       {{/power-select}}
     </div>
   </div>
