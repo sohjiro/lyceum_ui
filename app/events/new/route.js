@@ -18,28 +18,16 @@ export default Ember.Route.extend({
     controller.set('subjects', this.get('store').findAll('subject'));
   },
   actions: {
-    selectSubject(value) {
-      var subject = this.get('store').peekRecord('subject', value);
-      this.set('subject', subject);
-    },
-    selectType(value) {
-      var types = this.get('store').peekRecord('type', value);
-      this.set('type', types);
-    },
-    selectCampus(value) {
-      var campus = this.get('store').peekRecord('campus', value);
-      this.set('campus', campus);
-    },
     cancel: function() {
       clear(this.controller);
       this.transitionTo('events');
     },
     addNew: function() {
       var new_event = this.store.createRecord('event', {
-        type: this.get('type'),
-        subject: this.get('subject'),
+        type: this.controller.get('type'),
+        subject: this.controller.get('subject'),
         starting_date: this.controller.get('starting_date'),
-        campus: this.get('campus'),
+        campus: this.controller.get('campus'),
         quorum: this.controller.get('quorum'),
         price: this.controller.get('price')
       });

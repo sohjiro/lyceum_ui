@@ -30,11 +30,14 @@
   <div class="form-group">
     <label for="name" class="col-sm-2 control-label">Name</label>
     <div class="col-sm-10">
-      {{#x-select action="selectSubject" as |xs|}}
-        {{#each subjects as |subject|}}
-          {{#xs.option value=subject.id}} {{subject.name}} {{/xs.option}}
-        {{/each}}
-      {{/x-select}}
+      {{#power-select
+        placeholder="Select subject..."
+        searchEnabled=false
+        options=subjects
+        selected=subject
+        onchange=(action (mut subject)) as |subject|}}
+        {{ subject.name }}
+      {{/power-select}}
     </div>
   </div>
 
@@ -48,11 +51,14 @@
   <div class="form-group">
     <label for="campus" class="col-sm-2 control-label">Campus</label>
     <div class="col-sm-10">
-      {{#x-select action="selectCampus" as |xs|}}
-        {{#each campuses as |campus|}}
-          {{#xs.option value=campus.id}} {{campus.name}} {{/xs.option}}
-        {{/each}}
-      {{/x-select}}
+      {{#power-select
+        placeholder="Select campus..."
+        searchEnabled=false
+        options=campuses
+        selected=campus
+        onchange=(action (mut campus)) as |campus|}}
+        {{ campus.name }}
+      {{/power-select}}
     </div>
   </div>
 
