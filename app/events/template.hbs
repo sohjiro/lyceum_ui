@@ -1,7 +1,9 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-8">
-      <h1> Event list </h1>
+      <div class="page-header">
+        <h1>Event list</h1>
+      </div>
       <table class="table table-hover table-strip">
         <thead>
           <tr>
@@ -25,7 +27,10 @@
               <td>{{ event.campus.name }}</td>
               <td>{{ event.quorum }}</td>
               <td>{{ event.price }}</td>
-              <td class="text-center"><span class="badge">{{ event.records.length }}</span></td>
+              <td class="text-center">
+                <span class="badge">{{ event.records.length }}</span> <br />
+                {{ link-to 'Send email' 'mail' (query-params event_id=event.id)}}
+              </td>
             </tr>
           {{/each}}
         </tbody>

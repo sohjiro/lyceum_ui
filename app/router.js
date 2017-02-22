@@ -24,6 +24,7 @@ Router.map(function() {
     this.route('record', {path: 'records/:record_id'});
     this.route('candidates', {path: 'candidates'});
   });
+  this.route('mail');
 });
 
 export default Router;
