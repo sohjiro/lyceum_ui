@@ -37,5 +37,18 @@ module.exports = function(defaults) {
   app.import('bower_components/bootstrap/dist/css/bootstrap.css');
   app.import('bower_components/bootstrap/dist/css/bootstrap-theme.css');
   app.import('bower_components/bootstrap/dist/js/bootstrap.js');
+
+  app.import('bower_components/summernote/dist/font/summernote.eot', {
+    destDir: 'font'
+  });
+  app.import('bower_components/summernote/dist/font/summernote.ttf', {
+    destDir: 'assets/font'
+  });
+  app.import('bower_components/summernote/dist/font/summernote.woff', {
+    destDir: 'assets/font'
+  });
+
+  app.import('bower_components/summernote/dist/summernote.css');
+  app.import('bower_components/summernote/dist/summernote.min.js');
   return app.toTree();
 };
