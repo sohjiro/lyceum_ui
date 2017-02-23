@@ -14,10 +14,10 @@
   <div class="form-group">
     {{#power-select-multiple
       placeholder="To..."
-      options=model
+      options=model.records
       selected=candidates
-      onchange=(action (mut candidates)) as |candidate|}}
-      {{ candidate.name }}
+      onchange=(action (mut candidates)) as |record|}}
+      {{ record.candidate.name }} - {{ get record.recordStatusSorted 'firstObject.status.name' }}
     {{/power-select-multiple}}
   </div>
 
