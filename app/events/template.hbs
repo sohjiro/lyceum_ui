@@ -28,9 +28,7 @@
               <td>{{ event.quorum }}</td>
               <td>{{ event.price }}</td>
               <td class="text-center">
-                <span class="badge">{{ event.records.length }}</span> <br />
-
-                {{ link-to 'Send email' 'event.mail' event}}
+                <span class="badge">{{ event.records.length }}</span>
               </td>
             </tr>
           {{/each}}
