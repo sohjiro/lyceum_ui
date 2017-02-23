@@ -12,7 +12,13 @@
 <div class="form">
 
   <div class="form-group">
-    {{ input value=to class="form-control" id="to" placeholder="to" }}
+    {{#power-select-multiple
+      placeholder="To..."
+      options=model
+      selected=candidates
+      onchange=(action (mut candidates)) as |candidate|}}
+      {{ candidate.name }}
+    {{/power-select-multiple}}
   </div>
 
   <div class="form-group">
@@ -20,7 +26,7 @@
   </div>
 
   <div class="form-group">
-    {{ rich-text }}
+    {{ rich-text value=data }}
   </div>
 
 </div>
