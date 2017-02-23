@@ -30,7 +30,7 @@
               <td class="text-center">
                 <span class="badge">{{ event.records.length }}</span> <br />
 
-                {{ link-to 'Send email' 'mail' (query-params event_id=event.id)}}
+                {{ link-to 'Send email' 'event.mail' event}}
               </td>
             </tr>
           {{/each}}

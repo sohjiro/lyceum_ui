@@ -1,11 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  queryParams: { event_id: 0 },
-  model(params) {
-    return this.store.query('candidate', { event_id: params["event_id"] });
-  },
-
   actions: {
     send: function() {
       var candidates = this.controller.get('candidates');
