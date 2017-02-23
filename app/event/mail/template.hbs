@@ -15,8 +15,9 @@
     {{#power-select-multiple
       placeholder="To..."
       options=model.records
-      selected=candidates
-      onchange=(action (mut candidates)) as |record|}}
+      selected=records
+      searchField='candidate.name'
+      onchange=(action (mut records)) as |record|}}
       {{ record.candidate.name }} - {{ get record.recordStatusSorted 'firstObject.status.name' }}
     {{/power-select-multiple}}
   </div>
