@@ -10,29 +10,19 @@ export default Ember.Route.extend({
       let body = this.controller.get('data');
       let to = records.mapBy('candidate.id').join(',');
 
-      return this.get('ajax').request('', {
-        method: 'POST',
-        data: {
-          mail: {
-            to: to,
-            subject: subject,
-            body: body
-          }
-        }
+      let mail = this.store.createRecord('mail', {
+        to: to,
+        subject: subject,
+        body: body
       });
 
-
-      // let mail = this.store.createRecord('mail', {
-      //   to: to,
-      //   subject: subject,
-      //   body: body
-      // });
-
-      // mail.save().then(() => {
-      //   console.log("successfully send it");
-      // }).catch((reason) => {
-      //   console.log(reason);
-      // });
+      mail.save().then(() => {
+        this.controller.set('success', {message: 'Successfully send it'});
+        this.controller.set('error', null);
+      }).catch((reason) => {
+        this.controller.set('error', reason.errors);
+        this.controller.set('success', null);
+      });
     }
   }
 });

@@ -9,8 +9,19 @@
   </h1>
 </div>
 
-<div class="form">
+{{#if error}}
+  <div id="danger" class="alert alert-danger" role="alert">
+    <strong>{{error.code}}</strong> {{ error.message }}
+  </div>
+{{/if}}
 
+{{#if success}}
+  <div id="success" class="alert alert-success" role="alert">
+    <strong>Well done!</strong> {{ success.message }}
+  </div>
+{{/if}}
+
+<div class="form">
   <div class="form-group">
     {{#power-select-multiple
       placeholder="To..."
