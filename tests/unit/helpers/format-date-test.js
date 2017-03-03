@@ -6,7 +6,7 @@ module('Unit | Helper | format date');
 
 // Replace this with your real tests.
 test('it works', function(assert) {
-  let result = formatDate([42]);
+  let result = formatDate([new Date()]);
   assert.ok(result);
 });
 

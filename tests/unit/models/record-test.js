@@ -2,11 +2,10 @@ import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('record', 'Unit | Model | record', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:record']
 });
 
 test('it exists', function(assert) {
-  let model = this.subject();
-  // let store = this.store();
+  let model = this.store();
   assert.ok(!!model);
 });
